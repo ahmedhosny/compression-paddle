@@ -16,7 +16,7 @@ var stlLoader = new THREE.STLLoader();
 var fov =30;
 
 
-var fullPath = "http://s3.amazonaws.com/compression-paddle/160725_print2.stl"
+var fullPath = "https://s3.amazonaws.com/compression-paddle/160725_print2.stl"
 
 
 // CONFIGURE BAR
