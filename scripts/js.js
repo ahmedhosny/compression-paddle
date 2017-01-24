@@ -16,8 +16,7 @@ var stlLoader = new THREE.STLLoader();
 var fov =30;
 
 
-var fullPath = "https://s3.amazonaws.com/compression-paddle/160725_print2.stl"
-
+var fullPath = "https://s3.amazonaws.com/compression-paddle/160725_print.stl"
 
 // CONFIGURE BAR
 NProgress.configure({ showSpinner: false });
@@ -61,7 +60,7 @@ function loadSTL(filePath, myContainer){
 
     });
 
-
+    NProgress.start();
     stlLoader.load( filePath, createScene1, onProgress); 
     
     myRenderer1.setSize( $("#" + myContainer).width() , $("#" + myContainer).height() );
@@ -86,7 +85,15 @@ function initiateScene1(myContainer){
     myRenderer1 = new THREE.WebGLRenderer();
     // DUMMY POSITION
     myCamera1.target = new THREE.Vector3(0,0,0);
-    myCamera1.position.set(-8.0, -30, 9);
+    myCamera1.position.set(2100, 350, 5300);
+
+    
+
+    myCamera1.target = new THREE.Vector3(2000,-7,4500);
+
+    myCamera1.updateProjectionMatrix();
+    
+    
     myScene1.add(myCamera1);
     // CONTROL
     controls1 = new THREE.TrackballControls( myCamera1, myContainer);
@@ -98,6 +105,7 @@ function initiateScene1(myContainer){
     controls1.staticMoving = false;
     controls1.dynamicDampingFactor = 0.15;
     controls1.keys = [ 65, 83, 68 ];
+    controls1.autoRotate = true
 
 }
 
@@ -111,7 +119,6 @@ function onProgress(data){
     if (percent > 0.05){
         NProgress.set(parseFloat(percent));  
     }   
-    console.log(NProgress.status);
 
 }
 
@@ -121,7 +128,7 @@ function onProgress(data){
 function createScene1( geometry, materials ) {
     var myMesh1 = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial()  );  // 
     myScene1.add(myMesh1); 
-    //
+    
     // CREATE BOUNDING BOX
     myMesh1.geometry.computeBoundingBox();
     var boundingBox1 = myMesh1.geometry.boundingBox;
@@ -136,13 +143,25 @@ function createScene1( geometry, materials ) {
 
 
     // SET POSITION
-    myCamera1.position.set(boundingBox1.max.x, boundingBox1.max.y, boundingBox1.max.z);
+    myCamera1.position.set(boundingBox1.min.x -800 , boundingBox1.max.y + 100, boundingBox1.max.z +600);
 
+    myCamera1.rotation.y
     // FIX ROTATION 
     myCamera1.updateProjectionMatrix();
 
     // FIX CONTROLS
     controls1.target.set( Math.round(myX1) , Math.round(myY1) , Math.round(myZ1) );
+
+    myCamera1.updateProjectionMatrix();
+
+    width=$("#three").width();
+    height=$("#three").height();
+
+    myCamera1.aspect = width/height;
+    myCamera1.updateProjectionMatrix();
+
+    myRenderer1.setSize( width, height );
+
 
 }
 
@@ -155,6 +174,7 @@ function render(){
         myRenderer1.render(myScene1,myCamera1);
         controls1.update();
         requestAnimationFrame(render);
+
 }
 
 }
