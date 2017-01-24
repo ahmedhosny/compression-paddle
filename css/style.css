@@ -32,3 +32,15 @@ html, body {
 #col2{
 	height:100%;
 }
+#three{
+	height:100%;
+	width:100%;
+	cursor: url(rotate32.png), auto;
+}
+
+#agree{
+text-align: center;
+    height: 280px;
+    overflow-y: scroll;
+    padding-right: 20px;
+}
