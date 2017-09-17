@@ -15,7 +15,6 @@ html, body {
 }
 #row1{
 	height:500px;
-	width:100%;
 }
 
 #canvas{
@@ -39,7 +38,6 @@ html, body {
 }
 
 #agree{
-text-align: center;
     height: 280px;
     overflow-y: scroll;
     padding-right: 20px;
