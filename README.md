@@ -3,7 +3,7 @@ This paddle is a handheld external compression device to facilitate computed tom
 
 A .stl file is made available <a href="https://ahmedhosny.github.io/compression-paddle/" target="_blank">here</a> for download.
 
-Not for clinical use.
+**Not for clinical use.**
 
 ## Manuscript
 The manuscript can be accessed <a href="http://www.ajronline.org/doi/abs/10.2214/AJR.16.17188" target="_blank">here</a> and the unedited version can be downloaded <a href="http://ahmedhosny.net/files/05_papers/epelboym2017.pdf" target="_blank">here</a>.
