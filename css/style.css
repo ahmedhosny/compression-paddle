@@ -14,7 +14,7 @@ html, body {
 	width: 500px
 }
 #row1{
-	height:500px;
+	height:530px;
 }
 
 #canvas{
@@ -45,6 +45,5 @@ html, body {
 
 #download{
     bottom: 15px;
-    position: absolute;
     width: 100%;	
 }
