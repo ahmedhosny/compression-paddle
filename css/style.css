@@ -38,10 +38,13 @@ html, body {
 }
 
 #agree{
-    height: 280px;
+    height: 220px;
     overflow-y: scroll;
     padding-right: 20px;
 }
-#cont{
-	height:100px		
+
+#download{
+    bottom: 15px;
+    position: absolute;
+    width: 100%;	
 }
